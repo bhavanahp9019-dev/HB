@@ -2,7 +2,6 @@
   --primary:#d4af37;
   --text:#fff;
 }
-
 body {
   margin:0;
   font-family:'Poppins', sans-serif;
@@ -185,4 +184,5 @@ audio{display:none;}
     height: auto;
   }
 }
+
 
