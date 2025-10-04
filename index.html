@@ -4,87 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday ❤️</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- Lightbox CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet"/>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Surprise Modal -->
+  <!-- Modal -->
   <div id="surpriseModal">
-    <div class="modal-content" id="modalContent">
-      <p>🎉 Surprise! 🎉</p>
-      <p>Wishing you endless happiness ❤️</p>
+    <div class="modal-content">
+      <p>🎉 Happy Birthday My Love ❤️</p>
       <div class="modal-buttons">
-        <button id="seeBtn">See</button>
-        <button id="exitBtn">Exit</button>
+        <button id="startBtn">Start</button>
       </div>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1 id="typing-text"></h1>
-    <p class="subtitle" data-text="Wishing you endless love, joy, and magical moments 💖"></p>
-    <p class="subtitle" data-text="ನೀನು ಮತ್ತು 나는 ಹಂಚಿಕೊಂಡ ಕ್ಷಣಗಳು ನನ್ನ ಹೃದಯದೊಳಗೆ ನಿತ್ಯ ಇರಿಸಿಕೊಂಡಿದ್ದೇನೆ. ಪ್ರತಿ ನಗು, ಪ್ರತಿ ಮಾತು, ಪ್ರತಿ ಸ್ಪರ್ಶ ನನ್ನ ಹೃದಯದಲ್ಲಿ ನಿತ್ಯ ಶಾಶ್ವತವಾಗಿ ಅಡಗಿಕೊಂಡಿದೆ. ❤️"></p>
-    <p class="subtitle" data-text="ಮಾತೋಮೇ ಹುಟ್ಟು ಹಬ್ಬದ ಹಾರ್ದಿಕ ಶುಭಾಶಯಗಳು 🎉"></p>
-    <p class="subtitle" data-text="ಇವು ನಮ್ಮ ಕೆಲವು ಚಿಕ್ಕ ಚಿಕ್ಕ ನೆನಪುಗಳು…"></p>
-
-    <div id="hearts-container"></div>
+    <h1>Happy Birthday 🎂</h1>
+    <button id="memoriesBtn">Memories</button>
   </section>
 
-  <!-- GALLERY SECTION -->
-  <section class="gallery">
-    <h2>Memories 📸</h2>
-    <div class="photo-grid">
-      <a href="photo1.jpeg" data-lightbox="birthday" data-title="Memory 1" data-index="1">Memory 1</a>
-      <a href="photo2.jpeg" data-lightbox="birthday" data-title="Memory 2" data-index="2">Memory 2</a>
-      <a href="photo3.jpeg" data-lightbox="birthday" data-title="Memory 3" data-index="3">Memory 3</a>
-      <a href="photo4.jpeg" data-lightbox="birthday" data-title="Memory 4" data-index="4">Memory 4</a>
-    </div>
+  <!-- Memories Section -->
+  <section id="memoriesSection" class="hidden">
+    <h2>Our Memories 📸</h2>
+    <p>This is where your gallery or birthday content goes...</p>
+    <button id="backBtn">Back</button>
   </section>
 
-  <!-- VIDEO SURPRISE SECTION -->
-  <section class="video-section">
-    <h2 id="videoTypingText"></h2>
-    <div class="video-container" style="display:none;">
-      <video id="cuteVideo" controls>
-        <source src="cute_video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <button id="playVideoBtn">Play Surprise Video ❤️</button>
-  </section>
-
-  <!-- MESSAGE SECTION -->
-  <section class="message-section">
-    <h3>A Special Message ✍️</h3>
-    <p>
-      Happy Birthday to the one who means everything to me 💖
-      You make my days beautiful just by being in them.
-      once again,Happy Birthday, Chummu! ❤️ 
-      Don’t worry, I will always be with you.
-      Love you more 🤗❤️
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Birthday Wishes | Designed with ❤️
-  </footer>
-
-  <!-- Audio element (single song) -->
-  <audio id="song1" src="song1.mpeg"></audio>
-
-  <!-- Lightbox JS -->
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
-
-  <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
 </html>
