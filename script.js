@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function(){
   const content = document.getElementById('modalContent');
   const seeBtn = document.getElementById('seeBtn');
   const exitBtn = document.getElementById('exitBtn');
-
   seeBtn.addEventListener('click', () => modal.style.display = 'none');
   exitBtn.addEventListener('click', () => {
     content.innerHTML = `
@@ -121,3 +120,4 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 });
+
