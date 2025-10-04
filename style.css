@@ -19,8 +19,7 @@ body::before {
   z-index:-1;
 }
 
-
-/* Remove body::after and use hero overlay instead */
+/* Hero overlay */
 .hero::after {
   content:"";
   position:absolute;
@@ -54,7 +53,11 @@ body::before {
 .subtitle{font-family:'Poppins', sans-serif; font-size:2vw; color:#fff; margin-top:1rem; text-shadow:1px 1px 6px rgba(0,0,0,0.6);}
 
 /* Floating hearts */
-#hearts-container{position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;}
+#hearts-container{
+  position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;
+  overflow:hidden;
+  will-change:transform; /* hint to browser for better compositing */
+}
 .heart{position:absolute; font-size:2em; animation: floatUp linear infinite;}
 @keyframes floatUp{0%{transform:translateY(0);}100%{transform:translateY(-100vh);opacity:0;}}
 
@@ -127,7 +130,6 @@ audio{display:none;}
   animation: fadeIn 2s ease-in-out;
 }
 
-
 /* Video fade-in animation */
 @keyframes fadeIn {
   0% {opacity: 0;}
@@ -184,5 +186,3 @@ audio{display:none;}
     height: auto;
   }
 }
-
-
