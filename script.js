@@ -46,9 +46,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
   typeH1();
 
-  // ------------------ Floating Hearts ------------------
+  // ------------------ Floating Hearts (with cap) ------------------
   const heartsContainer = document.getElementById('hearts-container');
+
+  // Max number of hearts allowed at once to avoid DOM/perf blowup
+  const MAX_HEARTS = 50;
+
   function createHeart() {
+    // If too many hearts are present, skip creating a new one (throttling)
+    if (heartsContainer.childElementCount >= MAX_HEARTS) return;
+
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.textContent = '💖';
@@ -56,9 +63,26 @@ document.addEventListener("DOMContentLoaded", function(){
     heart.style.fontSize = (1 + Math.random() * 2) + 'em';
     heart.style.animationDuration = (3 + Math.random() * 3) + 's';
     heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
+
+    // Remove after the animation time + a small buffer
+    setTimeout(() => {
+      if (heart && heart.parentNode) heart.parentNode.removeChild(heart);
+    }, 6500);
   }
-  setInterval(createHeart, 400);
+
+  // Slightly slower interval (400ms is fine; keep original feel)
+  const heartsInterval = setInterval(createHeart, 400);
+
+  // Optional: when page visibility changes, pause heavy effects
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(heartsInterval);
+    } else {
+      // restart the interval if needed (create a new one)
+      // Note: this keeps the same MAX_HEARTS cap
+      setInterval(createHeart, 400);
+    }
+  });
 
   // ------------------ Cute Video Play Button ------------------
   const videoTypingText = document.getElementById('videoTypingText');
@@ -95,16 +119,20 @@ document.addEventListener("DOMContentLoaded", function(){
   const song = document.getElementById('song1');
   const memoryLinks = document.querySelectorAll('[data-lightbox="birthday"]');
   let autoNextInterval = null;
+  let autoNextIntervalId = null;
 
   memoryLinks.forEach(link => {
     link.addEventListener('click', () => {
       song.currentTime = 0;
       song.play();
 
-      clearInterval(autoNextInterval);
+      if (autoNextIntervalId) {
+        clearInterval(autoNextIntervalId);
+        autoNextIntervalId = null;
+      }
 
       setTimeout(() => {
-        autoNextInterval = setInterval(() => {
+        autoNextIntervalId = setInterval(() => {
           const nextBtn = document.querySelector('.lb-next');
           if (nextBtn) nextBtn.click();
         }, 5000); // 5 seconds
@@ -116,7 +144,10 @@ document.addEventListener("DOMContentLoaded", function(){
     'onEnd': function() {
       song.pause();
       song.currentTime = 0;
-      clearInterval(autoNextInterval);
+      if (autoNextIntervalId) {
+        clearInterval(autoNextIntervalId);
+        autoNextIntervalId = null;
+      }
     }
   });
 
