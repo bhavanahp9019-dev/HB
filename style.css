@@ -8,7 +8,6 @@ body {
   color:var(--text);
   min-height:100vh;
 }
-
 /* Background cover photo */
 body::before {
   content:"";
@@ -184,6 +183,7 @@ audio{display:none;}
     height: auto;
   }
 }
+
 
 
 
