@@ -1,188 +1,88 @@
 :root {
-  --primary:#d4af37;
-  --text:#fff;
+  --primary: #d4af37;
+  --text: #fff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  margin:0;
-  font-family:'Poppins', sans-serif;
-  color:var(--text);
-  min-height:100vh;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Background cover photo */
 body::before {
-  content:"";
-  position:fixed;
-  top:0; left:0; width:100%; height:100%;
-  background:url('cover.jpg') center/cover no-repeat fixed;
-  z-index:-1;
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('cover.jpg') center/cover no-repeat fixed;
+  z-index: -1;
 }
 
-/* Hero overlay */
-.hero::after {
-  content:"";
-  position:absolute;
-  top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.4);
-  z-index:0;
-}
 .hero {
   position: relative;
   z-index: 1;
-}
-
-/* Modal */
-#surpriseModal{
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:white; display:flex; justify-content:center; align-items:center;
-  z-index:9999; flex-direction:column;
-}
-.modal-content{text-align:center;}
-.modal-content p{font-size:2em; margin:0.5em 0; color:var(--primary); font-family:'Playfair Display', serif;}
-.modal-buttons{margin-top:1.5em;}
-.modal-buttons button{
-  margin:0 1em; padding:0.7em 1.5em; font-size:1.1em;
-  border:none; border-radius:8px; cursor:pointer; background:var(--primary); color:white;
-}
-.modal-buttons button:hover{transform:scale(1.1);}
-
-/* Hero */
-.hero{height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; position:relative; z-index:1;}
-#typing-text{font-family:'Playfair Display', serif; font-size:5vw; color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.5);}
-.subtitle{font-family:'Poppins', sans-serif; font-size:2vw; color:#fff; margin-top:1rem; text-shadow:1px 1px 6px rgba(0,0,0,0.6);}
-
-/* Floating hearts */
-#hearts-container{
-  position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:2;
-  overflow:hidden;
-  will-change:transform; /* hint to browser for better compositing */
-}
-.heart{position:absolute; font-size:2em; animation: floatUp linear infinite;}
-@keyframes floatUp{0%{transform:translateY(0);}100%{transform:translateY(-100vh);opacity:0;}}
-
-/* Gallery */
-.gallery{max-width:1100px;margin:3rem auto;padding:0 1rem; position:relative; z-index:1;}
-.gallery h2{text-align:center;font-family:'Playfair Display', serif;font-size:2rem;margin-bottom:1.5rem;color:var(--primary);}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;}
-.photo-grid a {
-  display: inline-block;
-  padding: 12px 20px;
-  margin: 10px;
-  background: rgba(212,175,55,0.8);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-.photo-grid a:hover {
-  background: rgba(212,175,55,1);
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-/* Message */
-.message-section{max-width:800px;margin:4rem auto;padding:2rem; background:rgba(0,0,0,0.5); border-radius:10px;text-align:center;}
-.message-section h3{font-family:'Playfair Display', serif;font-size:1.8rem;color:var(--primary);}
-.message-section p{line-height:1.6;font-size:1.1rem;white-space:pre-line;color:#fff;}
-
-/* Footer */
-footer{text-align:center;padding:1.5rem;font-size:0.9rem;color:#ccc; position:relative; z-index:1;}
-audio{display:none;}
-
-@media(max-width:600px){#typing-text{font-size:10vw;} .subtitle{font-size:4vw;}}
-
-/* Video Section */
-.video-section {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: rgba(0,0,0,0.2); /* lighter overlay for video */
-  border-radius: 12px;
   text-align: center;
+  padding-top: 10vh;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+.hero h1 {
   position: relative;
-  z-index: 2; /* above the body overlay */
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  z-index: 1;
+  font-size: 3rem;
 }
 
-.video-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
-.video-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.video-container video {
-  width: 100%;
-  max-width: 300px;   /* smaller size */
-  margin: 0 auto;     /* centers horizontally */
-  display: block;     /* ensures margin auto works */
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  position: relative;
-  z-index: 2;
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Video fade-in animation */
-@keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-#playVideoBtn {
-  margin-top: 1.5rem;
-  padding: 0.8em 1.6em;
-  font-size: 1.1em;
+button {
+  padding: 10px 20px;
+  background: var(--primary);
+  color: #000;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  background: var(--primary);
-  color: white;
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#playVideoBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+.hidden {
+  display: none;
 }
-/* Typing effect for video section */
-#videoTypingText {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+
+#surpriseModal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  text-align: center;
 }
-@media(max-width: 768px) {
-  #typing-text {
-    font-size: 8vw;  /* adjusts main heading */
-  }
-  .subtitle {
-    font-size: 4vw;  /* smaller subtitles */
-  }
-  .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
-  .modal-content p {
-    font-size: 1.5em;
-  }
-  .modal-buttons button {
-    padding: 0.5em 1em;
-    font-size: 1em;
-  }
-  .video-section {
-    padding: 1rem;
-  }
-  .video-container video {
-    max-width: 100%;  /* responsive video */
-    height: auto;
-  }
+
+.heart {
+  position: fixed;
+  bottom: 0;
+  color: red;
+  font-size: 20px;
+  pointer-events: none;
+  animation: floatUp 6s linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
 }
